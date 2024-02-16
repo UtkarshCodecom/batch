@@ -1,2 +1,4 @@
 pyrogram 
+ffmpeg
+ffmpeg-python
 youtube-dl
