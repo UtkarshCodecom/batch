@@ -35,7 +35,7 @@ def save(client: pyrogram.client.Client, message: pyrogram.types.messages_and_me
 	bot.send_message(message.chat.id, '__Downloading__', reply_to_message_id=None)
 	url = message.text
 	try:
-		os.system('youtube-dl --hls-prefer-native ' + url + ' --output "main.mp4"') 
+		os.system('ffmpeg -i ' + url + ' -c copy -bsf:a aac_adtstoasc main.mp4') 
 		bot.send_video(message.chat.id, "main.mp4",progress=progress, reply_to_message_id=None, progress_args=[message,"up"])
 		os.remove("main.mp4")
 	except:
